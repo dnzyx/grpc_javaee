@@ -27,13 +27,12 @@ public final class SendMailServiceProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\017send_mail.proto\"D\n\017SendMailRequest\022\021\n\t" +
-      "recipient\030\001 \001(\t\022\r\n\005title\030\002 \001(\t\022\017\n\007conten" +
-      "t\030\003 \001(\t\"-\n\020SendMailResponse\022\014\n\004code\030\001 \001(" +
-      "\005\022\013\n\003msg\030\002 \001(\t2D\n\017SendMailService\0221\n\010sen" +
-      "dMail\022\020.SendMailRequest\032\021.SendMailRespon" +
-      "se\"\000B&\n\014com.rpc.mailB\024SendMailServicePro" +
-      "toP\001b\006proto3"
+      "\n\017send_mail.proto\",\n\017SendMailRequest\022\014\n\004" +
+      "name\030\001 \001(\t\022\013\n\003pwd\030\002 \001(\t\"-\n\020SendMailRespo" +
+      "nse\022\014\n\004code\030\001 \001(\005\022\013\n\003msg\030\002 \001(\t2D\n\017SendMa" +
+      "ilService\0221\n\010sendMail\022\020.SendMailRequest\032" +
+      "\021.SendMailResponse\"\000B&\n\014com.rpc.mailB\024Se" +
+      "ndMailServiceProtoP\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -52,7 +51,7 @@ public final class SendMailServiceProto {
     internal_static_SendMailRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_SendMailRequest_descriptor,
-        new java.lang.String[] { "Recipient", "Title", "Content", });
+        new java.lang.String[] { "Name", "Pwd", });
     internal_static_SendMailResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_SendMailResponse_fieldAccessorTable = new

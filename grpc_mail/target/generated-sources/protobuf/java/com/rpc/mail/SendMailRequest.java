@@ -15,9 +15,8 @@ public  final class SendMailRequest extends
     super(builder);
   }
   private SendMailRequest() {
-    recipient_ = "";
-    title_ = "";
-    content_ = "";
+    name_ = "";
+    pwd_ = "";
   }
 
   @java.lang.Override
@@ -47,19 +46,13 @@ public  final class SendMailRequest extends
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            recipient_ = s;
+            name_ = s;
             break;
           }
           case 18: {
             java.lang.String s = input.readStringRequireUtf8();
 
-            title_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            content_ = s;
+            pwd_ = s;
             break;
           }
         }
@@ -86,102 +79,68 @@ public  final class SendMailRequest extends
             com.rpc.mail.SendMailRequest.class, com.rpc.mail.SendMailRequest.Builder.class);
   }
 
-  public static final int RECIPIENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object recipient_;
+  public static final int NAME_FIELD_NUMBER = 1;
+  private volatile java.lang.Object name_;
   /**
-   * <code>optional string recipient = 1;</code>
+   * <code>optional string name = 1;</code>
    */
-  public java.lang.String getRecipient() {
-    java.lang.Object ref = recipient_;
+  public java.lang.String getName() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      recipient_ = s;
+      name_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string recipient = 1;</code>
+   * <code>optional string name = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getRecipientBytes() {
-    java.lang.Object ref = recipient_;
+      getNameBytes() {
+    java.lang.Object ref = name_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      recipient_ = b;
+      name_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
     }
   }
 
-  public static final int TITLE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object title_;
+  public static final int PWD_FIELD_NUMBER = 2;
+  private volatile java.lang.Object pwd_;
   /**
-   * <code>optional string title = 2;</code>
+   * <code>optional string pwd = 2;</code>
    */
-  public java.lang.String getTitle() {
-    java.lang.Object ref = title_;
+  public java.lang.String getPwd() {
+    java.lang.Object ref = pwd_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
     } else {
       com.google.protobuf.ByteString bs = 
           (com.google.protobuf.ByteString) ref;
       java.lang.String s = bs.toStringUtf8();
-      title_ = s;
+      pwd_ = s;
       return s;
     }
   }
   /**
-   * <code>optional string title = 2;</code>
+   * <code>optional string pwd = 2;</code>
    */
   public com.google.protobuf.ByteString
-      getTitleBytes() {
-    java.lang.Object ref = title_;
+      getPwdBytes() {
+    java.lang.Object ref = pwd_;
     if (ref instanceof java.lang.String) {
       com.google.protobuf.ByteString b = 
           com.google.protobuf.ByteString.copyFromUtf8(
               (java.lang.String) ref);
-      title_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CONTENT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object content_;
-  /**
-   * <code>optional string content = 3;</code>
-   */
-  public java.lang.String getContent() {
-    java.lang.Object ref = content_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      content_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>optional string content = 3;</code>
-   */
-  public com.google.protobuf.ByteString
-      getContentBytes() {
-    java.lang.Object ref = content_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      content_ = b;
+      pwd_ = b;
       return b;
     } else {
       return (com.google.protobuf.ByteString) ref;
@@ -200,14 +159,11 @@ public  final class SendMailRequest extends
 
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getRecipientBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 1, recipient_);
+    if (!getNameBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 1, name_);
     }
-    if (!getTitleBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 2, title_);
-    }
-    if (!getContentBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessage.writeString(output, 3, content_);
+    if (!getPwdBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessage.writeString(output, 2, pwd_);
     }
   }
 
@@ -216,14 +172,11 @@ public  final class SendMailRequest extends
     if (size != -1) return size;
 
     size = 0;
-    if (!getRecipientBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, recipient_);
+    if (!getNameBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(1, name_);
     }
-    if (!getTitleBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, title_);
-    }
-    if (!getContentBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessage.computeStringSize(3, content_);
+    if (!getPwdBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessage.computeStringSize(2, pwd_);
     }
     memoizedSize = size;
     return size;
@@ -336,11 +289,9 @@ public  final class SendMailRequest extends
     }
     public Builder clear() {
       super.clear();
-      recipient_ = "";
+      name_ = "";
 
-      title_ = "";
-
-      content_ = "";
+      pwd_ = "";
 
       return this;
     }
@@ -364,9 +315,8 @@ public  final class SendMailRequest extends
 
     public com.rpc.mail.SendMailRequest buildPartial() {
       com.rpc.mail.SendMailRequest result = new com.rpc.mail.SendMailRequest(this);
-      result.recipient_ = recipient_;
-      result.title_ = title_;
-      result.content_ = content_;
+      result.name_ = name_;
+      result.pwd_ = pwd_;
       onBuilt();
       return result;
     }
@@ -382,16 +332,12 @@ public  final class SendMailRequest extends
 
     public Builder mergeFrom(com.rpc.mail.SendMailRequest other) {
       if (other == com.rpc.mail.SendMailRequest.getDefaultInstance()) return this;
-      if (!other.getRecipient().isEmpty()) {
-        recipient_ = other.recipient_;
+      if (!other.getName().isEmpty()) {
+        name_ = other.name_;
         onChanged();
       }
-      if (!other.getTitle().isEmpty()) {
-        title_ = other.title_;
-        onChanged();
-      }
-      if (!other.getContent().isEmpty()) {
-        content_ = other.content_;
+      if (!other.getPwd().isEmpty()) {
+        pwd_ = other.pwd_;
         onChanged();
       }
       onChanged();
@@ -420,209 +366,140 @@ public  final class SendMailRequest extends
       return this;
     }
 
-    private java.lang.Object recipient_ = "";
+    private java.lang.Object name_ = "";
     /**
-     * <code>optional string recipient = 1;</code>
+     * <code>optional string name = 1;</code>
      */
-    public java.lang.String getRecipient() {
-      java.lang.Object ref = recipient_;
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        recipient_ = s;
+        name_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string recipient = 1;</code>
+     * <code>optional string name = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getRecipientBytes() {
-      java.lang.Object ref = recipient_;
+        getNameBytes() {
+      java.lang.Object ref = name_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        recipient_ = b;
+        name_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>optional string recipient = 1;</code>
+     * <code>optional string name = 1;</code>
      */
-    public Builder setRecipient(
+    public Builder setName(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      recipient_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string recipient = 1;</code>
+     * <code>optional string name = 1;</code>
      */
-    public Builder clearRecipient() {
+    public Builder clearName() {
       
-      recipient_ = getDefaultInstance().getRecipient();
+      name_ = getDefaultInstance().getName();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string recipient = 1;</code>
+     * <code>optional string name = 1;</code>
      */
-    public Builder setRecipientBytes(
+    public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      recipient_ = value;
+      name_ = value;
       onChanged();
       return this;
     }
 
-    private java.lang.Object title_ = "";
+    private java.lang.Object pwd_ = "";
     /**
-     * <code>optional string title = 2;</code>
+     * <code>optional string pwd = 2;</code>
      */
-    public java.lang.String getTitle() {
-      java.lang.Object ref = title_;
+    public java.lang.String getPwd() {
+      java.lang.Object ref = pwd_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        title_ = s;
+        pwd_ = s;
         return s;
       } else {
         return (java.lang.String) ref;
       }
     }
     /**
-     * <code>optional string title = 2;</code>
+     * <code>optional string pwd = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getTitleBytes() {
-      java.lang.Object ref = title_;
+        getPwdBytes() {
+      java.lang.Object ref = pwd_;
       if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        title_ = b;
+        pwd_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
       }
     }
     /**
-     * <code>optional string title = 2;</code>
+     * <code>optional string pwd = 2;</code>
      */
-    public Builder setTitle(
+    public Builder setPwd(
         java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      title_ = value;
+      pwd_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>optional string title = 2;</code>
+     * <code>optional string pwd = 2;</code>
      */
-    public Builder clearTitle() {
+    public Builder clearPwd() {
       
-      title_ = getDefaultInstance().getTitle();
+      pwd_ = getDefaultInstance().getPwd();
       onChanged();
       return this;
     }
     /**
-     * <code>optional string title = 2;</code>
+     * <code>optional string pwd = 2;</code>
      */
-    public Builder setTitleBytes(
+    public Builder setPwdBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
       
-      title_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object content_ = "";
-    /**
-     * <code>optional string content = 3;</code>
-     */
-    public java.lang.String getContent() {
-      java.lang.Object ref = content_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        content_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>optional string content = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getContentBytes() {
-      java.lang.Object ref = content_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        content_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>optional string content = 3;</code>
-     */
-    public Builder setContent(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      content_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string content = 3;</code>
-     */
-    public Builder clearContent() {
-      
-      content_ = getDefaultInstance().getContent();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>optional string content = 3;</code>
-     */
-    public Builder setContentBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      content_ = value;
+      pwd_ = value;
       onChanged();
       return this;
     }
