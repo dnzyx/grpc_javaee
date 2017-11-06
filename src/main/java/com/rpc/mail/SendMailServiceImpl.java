@@ -7,9 +7,10 @@ import io.grpc.stub.StreamObserver;
   
 public class SendMailServiceImpl extends SendMailServiceGrpc.SendMailServiceImplBase {  
     public void sendMail(SendMailRequest request, StreamObserver<SendMailResponse> responseObserver) {  
-    	test obj = null;  
+    	
+    	// byteArray to object  
+    	/*test obj = null;  
     	try {  
-    	    // byteArray to object  
     	    ByteArrayInputStream bi = new ByteArrayInputStream(request.getObj().toByteArray());  
     	    ObjectInputStream oi = new ObjectInputStream(bi);  
     	  
@@ -19,9 +20,10 @@ public class SendMailServiceImpl extends SendMailServiceGrpc.SendMailServiceImpl
     	} catch (Exception e) {  
     	    System.out.println("translation" + e.getMessage());  
     	    e.printStackTrace();  
-    	}  
+    	}*/  
     	
-        System.out.println(request.getName() + "\t" + request.getPwd() + "\t"+obj.getName()+"\t"+obj.getPwd()); 
+    	file.writeFile(request.getObj().toByteArray(), "F:\\mysoft\\Android\\WorkSpace\\test", "t1.jpg");
+        System.out.println(request.getName() + "\t" + request.getPwd() + "\t"); 
         //这里是具体的业务逻辑  
         SendMailResponse resp = SendMailResponse.newBuilder().setCode(0).setMsg("OK").build();  
         //设置返回结果  

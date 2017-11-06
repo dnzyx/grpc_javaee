@@ -1,8 +1,12 @@
 package com.rpc.mail;  
   
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.ObjectOutputStream;
 import java.util.concurrent.TimeUnit;
+
+import javax.imageio.stream.FileImageInputStream;
 
 import com.google.protobuf.ByteString;
 import com.google.protobuf.MessageLite;
@@ -18,13 +22,13 @@ public class GrpcClient {
         //同步调用: SendMailServiceGrpc.newBlockingStub(channel)
         //异步调用的话，就是：SendMailServiceGrpc.newFutureStub(channel))  
         SendMailServiceBlockingStub stub = SendMailServiceGrpc.newBlockingStub(channel);  
-          
+         byte[] bytes = null;
         //设置请求参数  
-        test t=new test("hhh", "abcde");
-        
-        byte[] bytes = null;  
+         
+        /*
+        // object to byteArray  
+         test t=new test("hhh", "abcde");
         try {  
-            // object to byteArray  
             ByteArrayOutputStream bo = new ByteArrayOutputStream();  
             ObjectOutputStream oo = new ObjectOutputStream(bo);  
             oo.writeObject(t);
@@ -35,9 +39,10 @@ public class GrpcClient {
         } catch (Exception e) {  
             System.out.println("translation" + e.getMessage());  
             e.printStackTrace();  
-        }  
-        
-        SendMailRequest param = SendMailRequest.newBuilder().setName("dnzyx").setPwd("123456").setObj(ByteString.copyFrom(bytes)).build(); 
+        }  */
+         
+        //bytes=file.readFile("F:\\mysoft\\Android\\WorkSpace\\test\\tower.jpg");
+        SendMailRequest param = SendMailRequest.newBuilder().setName("dnzyx").setPwd("123456").setObj(ByteString.readFrom(new FileInputStream(new File("F:\\mysoft\\Android\\WorkSpace\\test\\tower.jpg")))).build(); 
         SendMailResponse resp = stub.sendMail(param);  
         System.out.println(resp.getMsg() + "\t" + resp.getCode());  
           
