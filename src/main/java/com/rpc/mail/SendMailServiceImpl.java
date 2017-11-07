@@ -1,7 +1,4 @@
 package com.rpc.mail;  
-  
-import java.io.ByteArrayInputStream;
-import java.io.ObjectInputStream;
 
 import io.grpc.stub.StreamObserver;
   
@@ -14,7 +11,7 @@ public class SendMailServiceImpl extends SendMailServiceGrpc.SendMailServiceImpl
     	    ByteArrayInputStream bi = new ByteArrayInputStream(request.getObj().toByteArray());  
     	    ObjectInputStream oi = new ObjectInputStream(bi);  
     	  
-    	    obj = (test)oi.readObject();  
+    	    obj = (test)oi.readObject();
     	    bi.close();  
     	    oi.close();  
     	} catch (Exception e) {  
@@ -22,12 +19,12 @@ public class SendMailServiceImpl extends SendMailServiceGrpc.SendMailServiceImpl
     	    e.printStackTrace();  
     	}*/  
     	
-    	file.writeFile(request.getObj().toByteArray(), "F:\\mysoft\\Android\\WorkSpace\\test", "t1.jpg");
+    	file.writeFile(request.getObj().toByteArray(), "F:\\mysoft\\Android\\WorkSpace\\test", request.getName()+".jpg");
         System.out.println(request.getName() + "\t" + request.getPwd() + "\t"); 
         //这里是具体的业务逻辑  
         SendMailResponse resp = SendMailResponse.newBuilder().setCode(0).setMsg("OK").build();  
         //设置返回结果  
-        responseObserver.onNext(resp); 
+        responseObserver.onNext(resp);
         responseObserver.onCompleted();
     }  
 }  
